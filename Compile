@@ -1,0 +1,19 @@
+To compile a code best thing to do is to locate to the project folder and use the following command:
+        javac search/run/Run.java search/src/code/*.java search/src/ex/*.java search/src/code/attribute/Att.java
+
+If you are not located on the project folder add:
+        /home/<name of computer>/<destination of the project>/
+to every element of the compile path; new command will look like:
+        javac /home/<name of computer>/<destination of the project>/search/run/Run.java
+              /home/<name of computer>/<destination of the project>/search/src/code/*.java
+              /home/<name of computer>/<destination of the project>/search/src/ex/*.java
+              /home/<name of computer>/<destination of the project>/search/src/code/attribute/Att.java
+
+Failing to compile either one of the files:
+        Run.java
+        Node.java
+        Tree.java
+        Att.java
+        InvalidPathException.java
+        NoFolderException.java
+will result in compiler failure.

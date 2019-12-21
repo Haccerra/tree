@@ -1,0 +1,69 @@
+All the arguments must be specified. Otherwise, an error will occur.
+The arguments must be called in specified order.
+
+ARG[0]::Location to the runnable file.
+        The argument must be specified as relative location to the executable file.
+        Executable file can be found under:
+            search/run folder structure.
+        Name of the executable file is:
+            Run
+        To execute the file from root folder (tree) use:
+            search.run.Run
+        or:
+            search/run/Run
+        If the number of arguments is not valid, an error will be raised and the execution stopped.
+
+ARG[1]::Location to the folder.
+        The argument can be specified as both relative or absolute path to the current directory from which the program is executed.
+        To specify absolute location use the next command style:
+            /home/<name of computer>/<location to the folder>
+        To specify relative location use the next command style:
+            ./<location to the folder>
+        To specify in-directory location use the next command:
+            .
+        If the argument is not valid, an error will be raised and the execution stopped.
+
+ARG[2]::Type of object maximum is being search for.
+        The argument can have only three valid values:
+            folder
+            directory
+            file
+        If the argument is specified as folder/directory then the search will be done to find the biggest directory on the path.
+        If the argument is specified as file then the search will be done to find the biggest file on the path.
+        An error will be raised and the execution stopped on these occasion:
+            Either of the words "folder", "directory" or "file" is misspelled or written in capital/mix-style letters;
+            Word other than the ones defined is specified;
+            Object is not a String.
+
+ARG[3]::Directory to search maximum file/directory from.
+        The argument specifies the subdirectory within tree-forming directory from which a maximum value is going to be considered.
+        The folder specified as the subdirectory will act as root and its' own size will not be evaluated.
+        This is done due to subdirectory being a container to all other files and directories beneath it which will result in it being the largest.
+        The argument can be set in next ways:
+          .          ===> use tree root as the subdirectory root;
+          ./<folder> ===> this specifies that the folder can only be searched from a current directory from which a program is being executed;
+          <folder>   ===> this specifies that any folder will be searched inside a tree with the given name.
+        Giving an absolute path can break the program.
+        If the folder is not found an error will be raised and the execution stopped.
+
+ARG[4]::Verbosity.
+        The argument specifies whether the whole tree will be printed out or only from the subdirectory.
+        Next values are evaluated:
+            true ===> print the whole tree;
+            false ===> print the tree from the subdirectory.
+        If any other value apart from true/false (in lower case, capital case, mixed letters) is used, default "false" will be evaluated.
+
+ARG[5]::Highlight.
+        The argument specifies whether the highlight should be done on all the files/folders or only on the biggest one.
+        The same logic applies as in case of ARG[4].
+
+
+Command to run the code:
+        If you are located in root directory of the program use the next command:
+                java search/run/Run /home/<name of computer>/<destination of the directory> <directory/folder> <name of subdirectory> <true/false> <true/false>
+
+
+Special note:
+    The order of the arguments here is specified in relevance to the "java" keyword call.
+    The same order of the arguments is not respected within runnable entity.
+    All arguments are shifted by "1" in runnable entity as the ARG[0] is not evaluated within program.
